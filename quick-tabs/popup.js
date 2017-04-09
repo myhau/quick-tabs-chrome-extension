@@ -417,12 +417,17 @@ function renderTabs(params) {
     'hasHistory': history.length > 0
   };
 
-  // render the templates
-  document.getElementById("content-list").innerHTML = Mustache.to_html(
-      document.getElementById('template').text, context
-  );
 
-  focusFirst();
+
+  setTimeout(function() {
+    // render the templates
+    document.getElementById("content-list").innerHTML = Mustache.to_html(
+      document.getElementById('template').text, context
+    );
+
+    focusFirst();
+  }, 100);
+
 
   $('.open').on('click', function() {
     bg.switchTabsWithoutDelay(parseInt(this.id), function() {
